@@ -9,6 +9,12 @@ function randChoice(arr){
   return arr[Math.floor(Math.random() * arr.length)];
 };
 
+function getRandomInt(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min)) + min;
+}
+
 const people = [];
 
 for (let i = 1; i <= 20; i++) {
@@ -23,7 +29,9 @@ for (let i = 1; i <= 20; i++) {
   }
 
   person.lastName = randChoice(lastName);
-  person.age = Math.floor(Math.random() * (54 - 21 + 1)) + 21;
+  person.age = Math.floor(Math.random() * 35 + 21);
+  person.email = (person.firstName + '.' + person.lastName + '@yahoo.com').toLowerCase();
+  person.phone = getRandomInt(100000000, 999999999)
 
   people.push(person);
 }
